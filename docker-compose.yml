@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  cucumber:
+    build: .
+    volumes:
+      - ".:/usr/src/app"
+    depends_on:
+      - chrome
+
+  chrome:
+    image: selenium/standalone-chrome-debug
+    volumes:
+      - "/dev/shm:/dev/shm"
